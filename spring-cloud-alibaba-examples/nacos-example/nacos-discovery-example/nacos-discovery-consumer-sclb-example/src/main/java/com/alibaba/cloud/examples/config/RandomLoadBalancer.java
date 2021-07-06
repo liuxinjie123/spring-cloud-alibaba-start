@@ -40,8 +40,7 @@ public class RandomLoadBalancer implements ReactorServiceInstanceLoadBalancer {
         return supplier.get().next().map(this::getInstanceResponse);
     }
 
-    private Response<ServiceInstance> getInstanceResponse(
-            List<ServiceInstance> instances) {
+    private Response<ServiceInstance> getInstanceResponse(List<ServiceInstance> instances) {
         if (instances.isEmpty()) {
             return new EmptyResponse();
         }

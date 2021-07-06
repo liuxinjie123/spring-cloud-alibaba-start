@@ -21,7 +21,7 @@ public class TestController {
     @Resource
     private DiscoveryClient discoveryClient;
 
-    private final String SERVICE_PROVIDER = "HTTP://service-provider";
+    private final String SERVICE_PROVIDER = "http://service-provider";
 
     @GetMapping("/echo-rest/{str}")
     public String rest(@PathVariable String str) {

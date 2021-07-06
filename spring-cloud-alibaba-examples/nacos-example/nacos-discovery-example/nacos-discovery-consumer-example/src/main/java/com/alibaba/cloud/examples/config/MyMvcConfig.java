@@ -23,5 +23,4 @@ public class MyMvcConfig {
         return new RestTemplate();
     }
 
-
 }
