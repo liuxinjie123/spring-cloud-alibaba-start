@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EchoController {
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity index() {
         return new ResponseEntity("index error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
