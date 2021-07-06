@@ -6,4 +6,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @LoadBalancerClient(value = "service-provider", configuration = MyLoadBalancerConfiguration.class)
 public class MySCLBConfiguration {
+
 }

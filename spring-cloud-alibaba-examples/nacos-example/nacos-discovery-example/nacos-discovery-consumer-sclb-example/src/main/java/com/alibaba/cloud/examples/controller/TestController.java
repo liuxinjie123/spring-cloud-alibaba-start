@@ -21,10 +21,11 @@ public class TestController {
     @Resource
     private DiscoveryClient discoveryClient;
 
+    private final String SERVICE_PROVIDER = "HTTP://service-provider";
+
     @GetMapping("/echo-rest/{str}")
     public String rest(@PathVariable String str) {
-        return restTemplate.getForObject("http://service-provider/echo/" + str,
-                String.class);
+        return restTemplate.getForObject(SERVICE_PROVIDER + "/echo/" + str, String.class);
     }
 
     @GetMapping("/echo-feign/{str}")
@@ -34,19 +35,17 @@ public class TestController {
 
     @GetMapping("/index")
     public String index() {
-        return restTemplate1.getForObject("http://service-provider", String.class);
+        return restTemplate1.getForObject(SERVICE_PROVIDER, String.class);
     }
 
     @GetMapping("/test")
     public String test() {
-        return restTemplate1.getForObject("http://service-provider/test",
-                String.class);
+        return restTemplate1.getForObject(SERVICE_PROVIDER + "/test", String.class);
     }
 
     @GetMapping("/sleep")
     public String sleep() {
-        return restTemplate1.getForObject("http://service-provider/sleep",
-                String.class);
+        return restTemplate1.getForObject(SERVICE_PROVIDER + "/sleep", String.class);
     }
 
     @GetMapping("/notFound-feign")
