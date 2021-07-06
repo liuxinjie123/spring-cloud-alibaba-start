@@ -25,9 +25,6 @@ import com.alibaba.nacos.api.exception.NacosException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @author zkzlx
- */
 public class NacosConfigManager {
 
 	private static final Logger log = LoggerFactory.getLogger(NacosConfigManager.class);
@@ -46,8 +43,7 @@ public class NacosConfigManager {
 	/**
 	 * Compatible with old design,It will be perfected in the future.
 	 */
-	static ConfigService createConfigService(
-			NacosConfigProperties nacosConfigProperties) {
+	static ConfigService createConfigService(NacosConfigProperties nacosConfigProperties) {
 		if (Objects.isNull(service)) {
 			synchronized (NacosConfigManager.class) {
 				try {

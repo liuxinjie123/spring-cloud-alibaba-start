@@ -120,7 +120,8 @@ In Nacos Config Starter, the splicing format of dataId is as follows
 
 * `prefix` default value is `spring.application.name` value, which can also be configured via the configuration item `spring.cloud.nacos.config.prefix`.
 
-* `spring.profiles.active` is the profile corresponding to the current environment. For details, please refer to [Spring Boot Doc](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html#boot-features-profiles)
+* `spring.profiles.active` is the profile corresponding to the current environment. 
+  For details, please refer to [Spring Boot Doc](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html#boot-features-profiles)
 
 	**Note: when the activeprofile is empty, the corresponding connector `-` will also not exist, and the splicing format of the dataId becomes `${prefix}`.`${file-extension}`**
 
@@ -134,11 +135,14 @@ Currently only the `properties` type is supported.
 ### Automatic Injection
 Nacos Config Starter implement `org.springframework.cloud.bootstrap.config.PropertySourceLocator` interface, and set order to 0.
 
-In the startup phase of the Spring Cloud application, the corresponding data is obtained from the Nacos Server side, and the acquired data is converted into a PropertySource and injected into the PropertySources property of the Spring Environment. so the @Value annotation can also directly obtain the configuration of the Nacos Server side.
+In the startup phase of the Spring Cloud application, the corresponding data is obtained from the Nacos Server side, 
+and the acquired data is converted into a PropertySource and injected into the PropertySources property of the Spring Environment. 
+so the @Value annotation can also directly obtain the configuration of the Nacos Server side.
 
 ### Dynamic Refresh
 
-By default, Nacos Config Starter adds a listening function to all Nacos configuration items that have successfully acquired data. It will trigger `org.springframework.cloud.context.refresh.ContextRefresher` 's refresh method in real time when it detects changes in the server configuration. 
+By default, Nacos Config Starter adds a listening function to all Nacos configuration items that have successfully acquired data. 
+It will trigger `org.springframework.cloud.context.refresh.ContextRefresher` 's refresh method in real time when it detects changes in the server configuration. 
 		
 If you need to dynamically refresh a bean, please refer to the Spring and Spring Cloud specifications. It is recommended to add `@RefreshScope` or `@ConfigurationProperties ` annotations to the class.
 

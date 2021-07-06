@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 @RefreshScope
 public class SampleController {
     @Resource
-    UserConfig userConfig;
+    private UserConfig userConfig;
     @Resource
     private NacosConfigManager nacosConfigManager;
     @Resource

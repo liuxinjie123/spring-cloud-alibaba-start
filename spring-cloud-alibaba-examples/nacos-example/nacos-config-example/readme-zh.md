@@ -41,9 +41,11 @@
 1. 首先需要获取 Nacos Server，支持直接下载和源码构建两种方式。**推荐使用最新版本 Nacos Server**
 
 	1. 直接下载：[Nacos Server 下载页](https://github.com/alibaba/nacos/releases) 
-	2. 源码构建：进入 Nacos [Github 项目页面](https://github.com/alibaba/nacos)，将代码 git clone 到本地自行编译打包，[参考此文档](https://nacos.io/zh-cn/docs/quick-start.html)。
+	2. 源码构建：进入 Nacos [Github 项目页面](https://github.com/alibaba/nacos)，将代码 git clone 到本地自行编译打包，
+	   [参考此文档](https://nacos.io/zh-cn/docs/quick-start.html)。
 	
-2. 启动 Server，进入下载到本地并解压完成后的文件夹(使用源码构建的方式则进入编译打包好的文件夹)，再进去其相对文件夹 nacos/bin，并对照操作系统实际情况执行如下命令。[详情参考此文档](https://nacos.io/zh-cn/docs/quick-start.html)。
+2. 启动 Server，进入下载到本地并解压完成后的文件夹(使用源码构建的方式则进入编译打包好的文件夹)，再进去其相对文件夹 nacos/bin，并对照操作系统实际情况执行如下命令。
+   [详情参考此文档](https://nacos.io/zh-cn/docs/quick-start.html)。
 	
 	1. Linux/Unix/Mac 操作系统，执行命令 `sh startup.sh -m standalone`
 	2. Windows 操作系统，执行命令 `cmd startup.cmd`
@@ -115,7 +117,8 @@ Nacos Client 从 Nacos Server 端获取数据时，调用的是此接口 `Config
 
 * `prefix` 默认为 `spring.application.name` 的值，也可以通过配置项 `spring.cloud.nacos.config.prefix`来配置。
 
-* `spring.profiles.active` 即为当前环境对应的 profile，详情可以参考 [Spring Boot文档](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html#boot-features-profiles)
+* `spring.profiles.active` 即为当前环境对应的 profile，详情可以参考 
+  [Spring Boot文档](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html#boot-features-profiles)
 
 	**注意，当 activeprofile 为空时，对应的连接符 `-` 也将不存在，dataId 的拼接格式变成 `${prefix}`.`${file-extension}`**
 
@@ -129,7 +132,8 @@ Nacos Client 从 Nacos Server 端获取数据时，调用的是此接口 `Config
 ### 自动注入
 Nacos Config Starter 实现了 `org.springframework.cloud.bootstrap.config.PropertySourceLocator`接口，并将优先级设置成了最高。
 
-在 Spring Cloud 应用启动阶段，会主动从 Nacos Server 端获取对应的数据，并将获取到的数据转换成 PropertySource 且注入到 Environment 的 PropertySources 属性中，所以使用 @Value 注解也能直接获取 Nacos Server 端配置的内容。
+在 Spring Cloud 应用启动阶段，会主动从 Nacos Server 端获取对应的数据，并将获取到的数据转换成 PropertySource 且注入到 Environment 的 PropertySources 属性中，
+所以使用 @Value 注解也能直接获取 Nacos Server 端配置的内容。
 
 ### 动态刷新
 
