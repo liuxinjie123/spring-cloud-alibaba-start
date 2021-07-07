@@ -3,16 +3,16 @@ server:
 
 spring:
   application:
-    name: configserver
+    name: alibaba-config-server
   cloud:
     nacos:
       username: nacos
       password: nacos
       discovery:
-        server-addr: localhost:8848
+        server-addr: 192.168.168.60:8848
     config:
       server:
         git:
-          uri: https://github.com/fangjian0423/blogimages
+          uri: https://gitee.com/liuxinjie123/springcloud-config.git
           search-paths: /
 

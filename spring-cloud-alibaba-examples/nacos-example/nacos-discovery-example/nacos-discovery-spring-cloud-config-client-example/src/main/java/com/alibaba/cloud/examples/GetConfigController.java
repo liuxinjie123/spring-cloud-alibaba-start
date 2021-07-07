@@ -26,7 +26,7 @@ public class GetConfigController {
 	@Value("${config}")
 	private String config;
 
-	@GetMapping("/config")
+	@GetMapping(value = "/config")
 	public String getConfig() {
 		return config;
 	}
