@@ -21,39 +21,26 @@ public class TestController {
 	@Resource
 	private DiscoveryClient discoveryClient;
 
-	// @PostConstruct
-	// public void init() {
-	// restTemplate1.setErrorHandler(new ResponseErrorHandler() {
-	// @Override
-	// public boolean hasError(ClientHttpResponse response) throws IOException {
-	// return false;
-	// }
-	//
-	// @Override
-	// public void handleError(ClientHttpResponse response) throws IOException {
-	// System.err.println("handle error");
-	// }
-	// });
-	// }
+	private final String SERVICE_PROVIDER = "http://service-provider";
 
 	@GetMapping(value = "/echo-rest/{str}")
 	public String rest(@PathVariable String str) {
-		return restTemplate.getForObject("http://service-provider/echo/" + str, String.class);
+		return restTemplate.getForObject(SERVICE_PROVIDER + "/echo/" + str, String.class);
 	}
 
 	@GetMapping(value = "/index")
 	public String index() {
-		return restTemplate1.getForObject("http://service-provider", String.class);
+		return restTemplate1.getForObject(SERVICE_PROVIDER, String.class);
 	}
 
 	@GetMapping(value = "/test")
 	public String test() {
-		return restTemplate1.getForObject("http://service-provider/test", String.class);
+		return restTemplate1.getForObject(SERVICE_PROVIDER + "/test", String.class);
 	}
 
 	@GetMapping(value = "/sleep")
 	public String sleep() {
-		return restTemplate1.getForObject("http://service-provider/sleep", String.class);
+		return restTemplate1.getForObject(SERVICE_PROVIDER + "/sleep", String.class);
 	}
 
 	@GetMapping(value = "/notFound-feign")

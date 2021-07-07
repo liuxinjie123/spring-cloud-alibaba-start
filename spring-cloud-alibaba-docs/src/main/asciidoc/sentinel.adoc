@@ -2,15 +2,26 @@
 
 === Introduction of Sentinel
 
-As microservices become popular, the stability of service calls is becoming increasingly important. https://github.com/alibaba/Sentinel[Sentinel] takes "flow" as the breakthrough point, and works on multiple fields including flow control, circuit breaking and load protection to protect service reliability.
+As microservices become popular, the stability of service calls is becoming increasingly important.
+https://github.com/alibaba/Sentinel[Sentinel] takes "flow" as the breakthrough point, and works on multiple fields
+including flow control, circuit breaking and load protection to protect service reliability.
 
 https://github.com/alibaba/Sentinel[Sentinel] has the following features:
 
 
-* *Rich Scenarios*： Sentinel has supported the key scenarios of Alibaba’s Double 11 Shopping Festivals for over 10 years, such as second kill(i.e., controlling sudden bursts of traffic flow so that it’s within the acceptable range of the system capacity), message load shifting, circuit breaking of unreliable downstream applications.
-* *Comprehensive Real-Time Monitoring*： Sentinel provides real-time monitoring capability. You can see the monitoring data of your servers at the accuracy of seconds, and even the overall runtime status of a cluster with less than 500 nodes.
-* *Extensive Open-Source Ecosystem*： Sentinel provides out-of-box modules that can be easily integrated with other open-source frameworks/libraries, such as Spring Cloud, Dubbo, and gRPC. To use Sentinel, you only need to introduce the related dependency and make a few simple configurations.
-* *Sound SPI Extensions*： Sentinel provides easy-to-use and sound SPI extension interfaces. You can customize logics with the SPI extensions quickly, for example, you can define your own rule management, or adapt to specific data sources.
+* * Rich Scenarios*： Sentinel has supported the key scenarios of Alibaba’s Double 11 Shopping Festivals for over 10 years,
+* * such as second kill(i.e., controlling sudden bursts of traffic flow so that it’s within the acceptable range of the system capacity),
+* * message load shifting, circuit breaking of unreliable downstream applications.
+* *
+* * Comprehensive Real-Time Monitoring*： Sentinel provides real-time monitoring capability. You can see the monitoring
+* * data of your servers at the accuracy of seconds, and even the overall runtime status of a cluster with less than 500 nodes.
+* *
+* * Extensive Open-Source Ecosystem*： Sentinel provides out-of-box modules that can be easily integrated with other
+* * open-source frameworks/libraries, such as Spring Cloud, Dubbo, and gRPC.
+* * To use Sentinel, you only need to introduce the related dependency and make a few simple configurations.
+* *
+* * Sound SPI Extensions*： Sentinel provides easy-to-use and sound SPI extension interfaces. You can customize logics
+* * with the SPI extensions quickly, for example, you can define your own rule management, or adapt to specific data sources.
 
 === How to Use Sentinel
 
@@ -47,11 +58,14 @@ public class TestController {
 }
 ```
 
-The @SentinelResource annotation is used to identify if a resource is rate limited or degraded. In the above sample, the 'hello' attribute of the annotation refers to the resource name.
+The @SentinelResource annotation is used to identify if a resource is rate limited or degraded. In the above sample,
+the 'hello' attribute of the annotation refers to the resource name.
 
-@SentinelResource also provides attributes such as `blockHandler`, `blockHandlerClass`,  and `fallback` to identify rate limiting or degradation operations. For more details, refer to  https://github.com/alibaba/Sentinel/wiki/%E6%B3%A8%E8%A7%A3%E6%94%AF%E6%8C%81[Sentinel Annotation Support].
+@SentinelResource also provides attributes such as `blockHandler`, `blockHandlerClass`,  and `fallback` to identify rate
+limiting or degradation operations. For more details, refer to  https://github.com/alibaba/Sentinel/wiki/%E6%B3%A8%E8%A7%A3%E6%94%AF%E6%8C%81[Sentinel Annotation Support].
 
-The above examples are all used in the WebServlet environment. Sentinel currently supports WebFlux and needs to cooperate with the `spring-boot-starter-webflux` dependency to trigger the WebFlux-related automation configuration in sentinel starter.
+The above examples are all used in the WebServlet environment. Sentinel currently supports WebFlux and needs to cooperate
+with the `spring-boot-starter-webflux` dependency to trigger the WebFlux-related automation configuration in sentinel starter.
 
 ```java
 @SpringBootApplication
@@ -78,7 +92,9 @@ public class TestController {
 
 ===== Sentinel Dashboard
 
-Sentinel dashboard is a lightweight console that provides functions such as machine discovery, single-server resource monitoring, overview of cluster resource data, as well as rule management. To use these features, you only need to complete a few steps.
+Sentinel dashboard is a lightweight console that provides functions such as machine discovery, single-server resource
+monitoring, overview of cluster resource data, as well as rule management. To use these features, you only need to
+complete a few steps.
 
 *Note*: The statistics overview for clusters only supports clusters with less than 500 nodes, and has a latency of about 1 to 2 seconds.
 

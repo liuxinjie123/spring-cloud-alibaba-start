@@ -23,52 +23,52 @@ public class TestController {
 
     private final String SERVICE_PROVIDER = "http://service-provider";
 
-    @GetMapping("/echo-rest/{str}")
+    @GetMapping(value = "/echo-rest/{str}")
     public String rest(@PathVariable String str) {
         return restTemplate.getForObject(SERVICE_PROVIDER + "/echo/" + str, String.class);
     }
 
-    @GetMapping("/echo-feign/{str}")
+    @GetMapping(value = "/echo-feign/{str}")
     public String feign(@PathVariable String str) {
         return echoService.echo(str);
     }
 
-    @GetMapping("/index")
+    @GetMapping(value = "/index")
     public String index() {
         return restTemplate1.getForObject(SERVICE_PROVIDER, String.class);
     }
 
-    @GetMapping("/test")
+    @GetMapping(value = "/test")
     public String test() {
         return restTemplate1.getForObject(SERVICE_PROVIDER + "/test", String.class);
     }
 
-    @GetMapping("/sleep")
+    @GetMapping(value = "/sleep")
     public String sleep() {
         return restTemplate1.getForObject(SERVICE_PROVIDER + "/sleep", String.class);
     }
 
-    @GetMapping("/notFound-feign")
+    @GetMapping(value = "/notFound-feign")
     public String notFound() {
         return echoService.notFound();
     }
 
-    @GetMapping("/divide-feign")
+    @GetMapping(value = "/divide-feign")
     public String divide(@RequestParam Integer a, @RequestParam Integer b) {
         return echoService.divide(a, b);
     }
 
-    @GetMapping("/divide-feign2")
+    @GetMapping(value = "/divide-feign2")
     public String divide(@RequestParam Integer a) {
         return echoService.divide(a);
     }
 
-    @GetMapping("/services/{service}")
+    @GetMapping(value = "/services/{service}")
     public Object client(@PathVariable String service) {
         return discoveryClient.getInstances(service);
     }
 
-    @GetMapping("/services")
+    @GetMapping(value = "/services")
     public Object services() {
         return discoveryClient.getServices();
     }
