@@ -15,12 +15,12 @@ public class EchoController {
         return new ResponseEntity("index error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @GetMapping("/test")
+    @GetMapping(value = "/test")
     public ResponseEntity test() {
         return new ResponseEntity("error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @GetMapping("/sleep")
+    @GetMapping(value = "/sleep")
     public String sleep() {
         try {
             Thread.sleep(1000L);
@@ -30,12 +30,12 @@ public class EchoController {
         return "ok";
     }
 
-    @GetMapping("/echo/{string}")
+    @GetMapping(value = "/echo/{string}")
     public String echo(@PathVariable String string) {
         return "hello Nacos Discovery " + string;
     }
 
-    @GetMapping("/divide")
+    @GetMapping(value = "/divide")
     public String divide(@RequestParam Integer a, @RequestParam Integer b) {
         return String.valueOf(a / b);
     }
