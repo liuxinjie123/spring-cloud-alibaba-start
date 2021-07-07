@@ -21,9 +21,9 @@ public class SampleController {
     @Resource
     private Environment environment;
     @Value("${user.name:zz}")
-    String userName;
+    private String userName;
     @Value("${user.age:25}")
-    Integer age;
+    private Integer age;
 
     @GetMapping("/user")
     public String simple() {

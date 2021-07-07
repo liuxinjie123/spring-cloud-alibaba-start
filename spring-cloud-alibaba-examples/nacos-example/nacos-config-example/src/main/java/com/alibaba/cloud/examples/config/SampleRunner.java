@@ -12,8 +12,8 @@ import java.io.StringReader;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
-public @Component
-class SampleRunner implements ApplicationRunner {
+@Component
+public class SampleRunner implements ApplicationRunner {
     @Resource
     private NacosConfigManager nacosConfigManager;
 
@@ -32,8 +32,7 @@ class SampleRunner implements ApplicationRunner {
                         Properties properties = new Properties();
                         try {
                             properties.load(new StringReader(configInfo));
-                        }
-                        catch (IOException e) {
+                        } catch (IOException e) {
                             e.printStackTrace();
                         }
                         System.out.println("config changed: " + properties);
