@@ -1,7 +1,12 @@
 package com.alibaba.cloud.examples.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
+@Data
+@NoArgsConstructor
 public class Order implements Serializable {
 
 	/**
@@ -28,11 +33,5 @@ public class Order implements Serializable {
 	 * money.
 	 */
 	public int money;
-
-	@Override
-	public String toString() {
-		return "Order{" + "id=" + id + ", userId='" + userId + '\'' + ", commodityCode='"
-				+ commodityCode + '\'' + ", count=" + count + ", money=" + money + '}';
-	}
 
 }
